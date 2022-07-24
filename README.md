@@ -93,7 +93,13 @@ Test F1: 0.9554628844483507
 ```
 
 ## Testing
-To run the test for the package, run
+To run the tests, install the package in development mode.
+
+```shell
+pip install -e ".[dev]"  
+```
+
+And run
 ```shell
 pytest
 ````
