@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+base_packages = ["scikit-learn>=0.24.2"]
+
+dev_packages = ["pytest>=4.0.2"]
+
 setup(
     name="drosophila",
     version="0.0.1",
@@ -18,6 +22,7 @@ setup(
     author="Amit Chaudhary",
     author_email="meamitkc@gmail.com",
     url="https://github.com/amitness/drosophila",
-    install_requires=["numpy", "scikit-learn", "scipy"], # TODO: Find versions used in research source
+    install_requires=base_packages,
+    extras_require={"dev": dev_packages},
     packages=find_packages(),
 )
