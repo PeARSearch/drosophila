@@ -3,6 +3,7 @@ from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import cross_val_score
 
 from drosophila import FFA
 
@@ -24,11 +25,13 @@ def test_hash_dataset():
     x_transformed = fly.fit_transform(x)
     assert x_transformed.shape == (5, 100)
 
+
 def test_vectorizer_pipeline():
     vectorizer = make_pipeline(CountVectorizer(max_features=231, lowercase=False, token_pattern='[^ ]+'),
                                FFA(kc_size=8853, wta=15, proj_size=10))
     x_vec = vectorizer.fit_transform(x_train)
     assert x_vec.shape == (len(x_train), 8853)
+
 
 def test_classification_pipeline():
     pipeline = make_pipeline(CountVectorizer(max_features=231, lowercase=False, token_pattern='[^ ]+'),
@@ -36,3 +39,11 @@ def test_classification_pipeline():
                              LogisticRegression(C=8, max_iter=2000))
     pipeline.fit(x_train, y_train)
     assert pipeline.score(x_train, y_train) == 1.0
+
+
+def test_cross_validation():
+    pipeline = make_pipeline(CountVectorizer(max_features=231, lowercase=False, token_pattern='[^ ]+'),
+                             FFA(kc_size=8853, wta=15, proj_size=10),
+                             LogisticRegression(C=8, max_iter=2000))
+    scores = cross_val_score(pipeline, x_train, y_train, cv=3, scoring='f1_macro')
+    assert len(scores) == 3
