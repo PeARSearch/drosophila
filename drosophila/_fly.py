@@ -1,4 +1,4 @@
-"""The main Fly class"""
+# Mirrored and adapted from: https://github.com/PeARSearch/PeARS-fruit-fly/blob/main/dense_fruit_fly/fly.py
 
 import random
 

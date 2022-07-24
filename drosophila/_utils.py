@@ -1,3 +1,5 @@
+# Mirrored and adapted from: https://github.com/PeARSearch/PeARS-fruit-fly/blob/main/dense_fruit_fly/utils.py
+
 import numpy as np
 from scipy.sparse import csr_matrix, vstack
 
@@ -20,7 +22,6 @@ def wta_vectorized(feature_mat, k):
 
 def hash_input_vectorized_(pn_mat, weight_mat, percent_hash):
     kc_mat = pn_mat.dot(weight_mat.T)
-    # print(pn_mat.shape,weight_mat.shape,kc_mat.shape)
     kc_use = np.squeeze(kc_mat.toarray().sum(axis=0, keepdims=1))
     kc_use = kc_use / sum(kc_use)
     kc_sorted_ids = np.argsort(kc_use)[:-kc_use.shape[0] - 1:-1]  # Give sorted list from most to least used KCs
