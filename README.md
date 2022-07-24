@@ -8,7 +8,7 @@ Install via pip.
 pip install git+https://github.com/amitness/drosophila
 ```
 
-## Examples
+## Examples [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13te7vmWQ2N0JyeCzkxk0M7Is5lTFYt9m?usp=sharing)
 
 ### Apply for dimensionality reduction
 
