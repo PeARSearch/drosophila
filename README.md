@@ -5,7 +5,7 @@ A scikit-learn compatible estimator for the [Fruit Fly Algorithm](https://pearsp
 Install via pip.
 
 ```shell
-pip install git+https://github.com/amitness/drosophila
+pip install git+https://github.com/PeARSearch/drosophila
 ```
 
 ## Examples [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13te7vmWQ2N0JyeCzkxk0M7Is5lTFYt9m?usp=sharing)
